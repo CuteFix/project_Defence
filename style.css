@@ -2,7 +2,6 @@
     box-sizing: border-box;
     font-family: Arial;
 }
-/*Класс main отображете видимую часть тетриса*/
 .title {
     font-size: 50pt;
     font-style: arial;

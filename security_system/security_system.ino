@@ -44,6 +44,9 @@ void setup() {
 }
  
 void loop() {
+ if ( ! mfrc522.PICC_IsNewCardPresent() || ! mfrc522.PICC_ReadCardSerial() ) {
+           return;
+        }
   if ((WiFi.status() == WL_CONNECTED)) { //Check the current connection status
  
     HTTPClient http;
@@ -78,10 +81,7 @@ void loop() {
         } while ((i = s.indexOf(',', ++i) + 1) > 0);
 http.end(); //Free the resources
 //........................
-if ( ! mfrc522.PICC_IsNewCardPresent() || ! mfrc522.PICC_ReadCardSerial() ) {
-                delay(2000);
-           return;
-        }
+
      String uid_;  
      uid_ += mfrc522.uid.uidByte[1];     
      uid_ += mfrc522.uid.uidByte[2];
